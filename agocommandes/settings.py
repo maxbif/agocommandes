@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django_countries',
+    'commandes',
     'crispy_forms',
     'base',
     'fournisseurs',
