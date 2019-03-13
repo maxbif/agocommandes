@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {{commande.reference}}
+
+  <a class="btn btn-primary" href="{% url 'commande-modifier' commande.slug %}" role="button">Modifier la commande</a>
+
+{% endblock %}

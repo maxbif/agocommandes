@@ -17,15 +17,17 @@ class Commande(models.Model):
     saison = models.CharField(max_length=4)
     type_commande = models.CharField(max_length=2, choices=TYPE_CHOICES)
     référence = models.CharField(max_length=100)
-    date = models.DateField()
+    date_livraison = models.DateField()
     echeance = models.DateField()
     montant_ht = models.DecimalField(max_digits=10, decimal_places=2)
     montant_ttc = models.DecimalField(max_digits=10, decimal_places=2)
     date_created= models.DateTimeField(default=datetime.now)
+    commande_livree = models.BooleanField()
+
     slug = models.SlugField(unique=True)
 
     def __str__(self):
-        return self.nom
+        return self.slug
 
     def save(self, *args, **kwargs):
         self.slug = slugify(string(self.fournisseur.nom)+string(self.saison)+string(self.type_commande)+string(self.référence)[:4])

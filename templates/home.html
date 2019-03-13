@@ -18,8 +18,8 @@
         </div>
         <div class="card-body">
           <button type="button" class="btn btn-lg btn-block btn-primary">Commandes en cours</button>
-          <button type="button" class="btn btn-lg btn-block btn-primary">Nouvelle commande</button>
-          <button type="button" class="btn btn-lg btn-block btn-primary">Modifier une commande</button>
+          <a class="btn btn-lg btn-block btn-primary" href="{% url 'commande-creer' %}" role="button">Nouvelle commande</a>
+          <a class="btn btn-lg btn-block btn-primary" href="{% url 'commande-modifier' %}" role="button">Modifier une commande</a>
         </div>
       </div>
       <div class="card mb-4 shadow-sm">
