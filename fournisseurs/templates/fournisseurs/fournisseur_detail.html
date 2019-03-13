@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {{fournisseur.name}}
+
+  <a class="btn btn-primary" href="{% url 'fournisseur-modifier' fournisseur.slug %}" role="button">Modifier le fournisseur</a>
+
+{% endblock %}

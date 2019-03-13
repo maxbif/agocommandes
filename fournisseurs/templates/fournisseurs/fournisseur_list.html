@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% for fournisseur in object_list %}
-    <h1>{{fournisseur.name}}</h1>
-  {% endfor %}
+
+    {% for fournisseur in object_list %}
+      <a href="{% url 'fournisseur-detail' fournisseur.slug %}">{{fournisseur.name}}</a> 
+    {% endfor %}
+
 {% endblock %}

@@ -19,6 +19,7 @@ class Fournisseur(models.Model):
     contact = models.CharField(max_length=100, blank=True)
     mail_contact = models.EmailField()
     date_created= models.DateTimeField(default=datetime.now)
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.name
