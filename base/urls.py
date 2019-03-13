@@ -21,4 +21,5 @@ from . import views
 urlpatterns = [
     path('', views.Accueil.as_view(), name='accueil'),
     path('fournisseurs/', include('fournisseurs.urls')),
+    path('commandes/', include('commandes.urls')),
 ]

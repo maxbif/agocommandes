@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
 
 {% block content %}
-
-    {% for commande in object_list %}
-      <li>
-        <a href="{% url 'commande-detail' commande.slug %}">{{commande.nom}}</a>
-      </li>
-      {% endfor %}
-
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Enregistrer les modifications</button>
+  </form>
 {% endblock %}

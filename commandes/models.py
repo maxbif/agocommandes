@@ -22,14 +22,13 @@ class Commande(models.Model):
     montant_ht = models.DecimalField(max_digits=10, decimal_places=2)
     montant_ttc = models.DecimalField(max_digits=10, decimal_places=2)
     date_created= models.DateTimeField(default=datetime.now)
-    commande_livree = models.BooleanField()
-
-    slug = models.SlugField(unique=True)
+    commande_livrée = models.BooleanField(default=False)
+    slug = models.SlugField()
 
     def __str__(self):
         return self.slug
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(string(self.fournisseur.nom)+string(self.saison)+string(self.type_commande)+string(self.référence)[:4])
+        self.slug = slugify(self.fournisseur.slug+'-'+str(self.type_commande)+'-'+str(self.saison)+'-'+str(self.référence))
         self.montant_ttc = self.montant_ht * (1 + self.fournisseur.taux_tva/100)
         super(Commande, self).save(*args, **kwargs)

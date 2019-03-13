@@ -17,9 +17,8 @@
           <h4 class="my-0 font-weight-normal">Commandes</h4>
         </div>
         <div class="card-body">
-          <button type="button" class="btn btn-lg btn-block btn-primary">Commandes en cours</button>
+          <a class="btn btn-lg btn-block btn-primary" href="{% url 'encours-liste' %}" role="button">Commandes en cours</a>
           <a class="btn btn-lg btn-block btn-primary" href="{% url 'commande-creer' %}" role="button">Nouvelle commande</a>
-          <a class="btn btn-lg btn-block btn-primary" href="{% url 'commande-modifier' %}" role="button">Modifier une commande</a>
         </div>
       </div>
       <div class="card mb-4 shadow-sm">
@@ -33,4 +32,4 @@
       </div>
     </div>
 
-{% endblock %}
+    {% endblock %}

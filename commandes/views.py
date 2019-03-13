@@ -7,20 +7,21 @@ from django.views.generic.edit import UpdateView, CreateView
 
 from .models import Commande
 
-class ListeCommandes(ListView):
+class ListeCommandesEnCours(ListView):
     model = Commande
+    queryset = Commande.objects.filter(commande_livrée=False)
 
 class DetailCommande(DetailView):
     model = Commande
 
 class ModifierCommande(UpdateView):
     model = Commande
-    fields = ['date_livraison', 'echeance', 'montant_ht', 'commande_livree']
+    fields = ['date_livraison', 'echeance', 'montant_ht', 'commande_livrée']
     template_name_suffix = '_update_form'
-    success_url = reverse_lazy('commandes-liste')
+    success_url = reverse_lazy('encours-liste')
 
 class CreerCommande(CreateView):
     model = Commande
     fields = ['fournisseur', 'saison', 'type_commande', 'référence', 'date_livraison', 'echeance', 'montant_ht']
     template_name_suffix = '_create_form'
-    success_url = reverse_lazy('commandes-liste')
+    success_url = reverse_lazy('encours-liste')

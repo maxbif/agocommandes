@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  {{commande.reference}}
+  {{commande.fournisseur}} Référence {{commande.référence}}
 
   <a class="btn btn-primary" href="{% url 'commande-modifier' commande.slug %}" role="button">Modifier la commande</a>
 

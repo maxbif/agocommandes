@@ -4,7 +4,7 @@
 
     {% for commande in object_list %}
       <li>
-        <a href="{% url 'commande-detail' commande.slug %}">{{commande.reference}}</a>
+        <a href="{% url 'commande-detail' commande.slug %}">{{commande.slug}}</a>
       </li>
       {% endfor %}
 
