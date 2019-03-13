@@ -15,7 +15,7 @@ class DetailFournisseur(DetailView):
 
 class ModifierFournisseur(UpdateView):
     model = Fournisseur
-    fields = ('nom', 'adresse', 'contact')
+    fields = ['nom', 'adresse', 'code_postal', 'pays', 'tva', 'contact', 'mail_contact']
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('fournisseurs-liste')
 
