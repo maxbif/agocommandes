@@ -22,7 +22,7 @@ class Commande(models.Model):
     montant_ht = models.DecimalField(max_digits=10, decimal_places=2)
     montant_ttc = models.DecimalField(max_digits=10, decimal_places=2)
     date_created= models.DateTimeField(default=datetime.now)
-    commande_livrée = models.BooleanField(default=False)
+    commande_livree = models.BooleanField(default=False)
     slug = models.SlugField()
 
     def __str__(self):

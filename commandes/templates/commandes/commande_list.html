@@ -6,6 +6,8 @@
       <li>
         <a href="{% url 'commande-detail' commande.slug %}">{{commande.slug}}</a>
       </li>
-      {% endfor %}
+    {% endfor %}
+
+    <a class="btn btn-lg btn-block btn-primary" href="{% url 'livrees-liste' %}" role="button">Commandes livrées</a>
 
 {% endblock %}

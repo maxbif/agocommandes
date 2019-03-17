@@ -9,7 +9,11 @@ from .models import Commande
 
 class ListeCommandesEnCours(ListView):
     model = Commande
-    queryset = Commande.objects.filter(commande_livrée=False)
+    queryset = Commande.objects.filter(commande_livree=False)
+
+class ListeCommandesLivrees(ListView):
+    model = Commande
+    queryset = Commande.objects.filter(commande_livree==True)
 
 class DetailCommande(DetailView):
     model = Commande
