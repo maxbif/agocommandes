@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from unipath import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).ancestor(3)
+MEDIA_ROOT = BASE_DIR.child("media")
 
 
 # Quick-start development settings - unsuitable for production
@@ -61,7 +63,7 @@ ROOT_URLCONF = 'agocommandes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [BASE_DIR.child("templates"),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,7 +126,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_ROOT = BASE_DIR.child("static")
+STATICFILES_DIRS = (
+    BASE_DIR.child("assets"),
+)
 STATIC_URL = '/static/'
+
 
 try:
     from .local_settings import *
