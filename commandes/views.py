@@ -13,14 +13,14 @@ class ListeCommandesEnCours(ListView):
 
 class ListeCommandesLivrees(ListView):
     model = Commande
-    queryset = Commande.objects.filter(commande_livree==True)
+    queryset = Commande.objects.filter(commande_livree=True)
 
 class DetailCommande(DetailView):
     model = Commande
 
 class ModifierCommande(UpdateView):
     model = Commande
-    fields = ['date_livraison', 'echeance', 'montant_ht', 'commande_livrée']
+    fields = ['date_livraison', 'echeance', 'montant_ht', 'commande_livree']
     template_name_suffix = '_update_form'
     success_url = reverse_lazy('encours-liste')
 

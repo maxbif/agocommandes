@@ -8,6 +8,9 @@
       </li>
     {% endfor %}
 
-    <a class="btn btn-lg btn-block btn-primary" href="{% url 'livrees-liste' %}" role="button">Commandes livrées</a>
+    <div class="container">
+          <a class="btn btn-primary" href="{% url 'livrees-liste' %}" role="button">Commandes livrées</a>
+    </div>
+
 
 {% endblock %}
